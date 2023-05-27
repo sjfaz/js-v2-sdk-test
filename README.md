@@ -3,7 +3,7 @@
 Install tshark and inspect network traffic. The interface name may vary. You will need to filter it down further to remove network noise.
 
 ```
-tshark -i en0 -Y "tcp.port == 443 && ssl.handshake.type && ssl.record.version == 0x0301"
+tshark -i en0 -Y "tcp.port == 443 && ssl.handshake.type == 1 && ssl.record.version == 0x0301"
 ```
 
 Install dependencies and start app.
