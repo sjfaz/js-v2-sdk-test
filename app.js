@@ -1,18 +1,18 @@
-const AWS = require("aws-sdk");
-const dynamodb = new AWS.DynamoDB({ region: "eu-west-1" });
+const DynamoDB = require("aws-sdk/clients/dynamodb");
+const dynamodb = new DynamoDB({ region: "eu-west-1" });
 
 const handler = async (event, context) => {
   try {
-    //process.env.AWS_NODEJS_CONNECTION_REUSE_ENABLED = 1;
+    // process.env.AWS_NODEJS_CONNECTION_REUSE_ENABLED = 1;
     console.log(
       "Env variable:",
       process.env.AWS_NODEJS_CONNECTION_REUSE_ENABLED
     );
     const item = {
-      TableName: "ecs-test-cmk-kms",
+      TableName: "sdk-test",
       Item: {
-        pk: { S: "test1" },
-        sk: { S: "test1" },
+        pk: { S: "test-sk-1" },
+        sk: { S: "test-pk-1" },
       },
     };
 
